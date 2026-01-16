@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +6,7 @@
   <meta name="author" content="Zer0">
   <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/zer0NA1/zer0/refs/heads/main/349-removebg-preview.png">
   <title>Zer0 OnTop!</title>
+  
   <style>
     html, body {
       margin: 0;
@@ -18,11 +19,13 @@
       user-select: none;
       font-family: "Inter", system-ui, -apple-system, sans-serif;
     }
+
     canvas {
       position: fixed;
       inset: 0;
       z-index: 0;
     }
+
     .c {
       position: fixed;
       inset: 0;
@@ -33,6 +36,7 @@
       gap: 20px;
       z-index: 1;
     }
+
     #b {
       border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 12px;
@@ -42,53 +46,66 @@
       flex-direction: column;
       color: white;
       background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       padding: 24px;
       transition: all 0.3s ease;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-      filter: brightness(1.2);
+      filter: brightness(1);
     }
+
     .t {
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: flex-start;
+      gap: 8px;
+      position: relative;
+      width: 100%;
     }
+
     #p {
-      width: 70px;
-      height: 70px;
-      border-radius: 100px;
+      width: 90px;
+      height: 80px;
+      border-radius: 50px;
       object-fit: cover;
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.4);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+                  0 0 5px rgba(255, 255, 255, 0.6), 
+                  0 0 10px rgba(255, 255, 255, 0.4);
     }
+
     #p:hover {
       transform: translateY(-3px);
       filter: brightness(1.05);
     }
+
     .t h2 {
       font-size: 24px;
-      font-weight: 800;
+      font-weight: 900;
       background: linear-gradient(to bottom, #fff, #888);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-top: -5px;
-      margin-left: 30px;
+      margin: 0;
       transition: all 0.3s ease;
+      margin-top: 15px;
+      margin-left: 20px;
     }
+
+    .t h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: gray;
+      margin: 0;
+      filter: brightness(1.2);
+      margin-left: 20px;
+    }
+
     .t h2:hover {
       transform: translateY(-3px);
-      filter: brightness(1.2);
+      filter: brightness(1.5);
+      color: white;
     }
-    .t h4 {
-      font-size: 14;
-      font-weight: 500;
-      color: gray;
-      margin-top: 45px;
-      margin-left: -60px;
-      filter: brightness(1.2);
-    }
+
     .anim {
       color: white;
       text-align: center;
@@ -98,10 +115,12 @@
       filter: brightness(1);
       transition: all 0.3s ease;
     }
+
     .anim:hover {
       transform: scale(1.1) translateY(-2px);
       filter: brightness(1.5);
     }
+
     .mc {
       position: absolute;
       border: 0.3px solid gray;
@@ -112,6 +131,7 @@
       width: 30px;
       transition: all 0.2s ease;
     }
+
     .mc svg {
       stroke: white;
       width: 20px;
@@ -119,19 +139,24 @@
       margin-left: 5px;
       margin-top: 5px;
     }
+
     .mc:hover {
       transform: scale(0.9);
     }
+
     .mc:active {
       filter: brightness(1.3);
     }
+
     .badges {
-     display: flex;
-     gap: 6px;
-     margin-top: -25px;
-     margin-right: 40px;
-     align-items: center;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-left: 25px;
+      margin-top: 15px;
+      margin-right: 80px;
     }
+
     .f {
       width: 24px;
       height: 24px;
@@ -143,20 +168,24 @@
       transition: all 0.3s ease;
       filter: brightness(1);
     }
+
     .f img {
       width: 17px;
       height: 17px;
       object-fit: cover;
       transition: all 0.3s ease;
     }
+
     .f:hover {
       transform: translateY(-3px);
       filter: brightness(1.1);
     }
+
     .f img:hover {
       transform: scale(1.1);
       filter: brightness(1.1);
     }
+
     .b2 {
       width: clamp(93px, 2vw, 193px);
       height: 8px;
@@ -168,6 +197,7 @@
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(10px);
     }
+
     .fsvg {
       border: 0.3px solid gray;
       border-radius: 20px;
@@ -179,6 +209,7 @@
       -webkit-tap-highlight-color: transparent;
       transition: all 0.3s ease;
     }
+
     .fsvg svg {
       fill: gray;
       width: 35px;
@@ -188,23 +219,31 @@
       transition: all 0.3s ease;
       object-fit: cover;
     }
+
     .fsvg:hover {
       transform: scale(0.9);
     }
+
     .fsvg svg:hover {
       fill: white;
       transform: scale(0.9);
     }
   </style>
 </head>
+
 <body>
   <canvas id="c"></canvas>
+  
   <div class="c">
     <div id="b">
       <div class="t">
         <img src="https://raw.githubusercontent.com/zer0NA1/zer0/refs/heads/main/349-removebg-preview.png" id="p">
-        <h2>Zer0</h2>
-        <h4>#sillyvet</h4>
+        
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <h2>Zer0</h2>
+          <h4>#sillyvet</h4>
+        </div>
+        
         <div class="badges">
           <div class="f" id="1">
             <img src="https://raw.githubusercontent.com/zer0NA1/zer0/refs/heads/main/359-Photoroom.png" alt="Badge 1">
@@ -220,7 +259,9 @@
           </div>
         </div>
       </div>
+      
       <h3 class="anim"></h3>
+      
       <div class="mc" id="musicBtn">
         <svg id="volOff" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -234,17 +275,20 @@
         </svg>
       </div>
     </div>
+    
     <div class="b2">
       <div class="fsvg" id="dl">
         <svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
           <path d="M216.9 54.1C200.6 46.6 183 41.5 165 39.1 c-2.3 4.1-4.9 9.5-6.7 13.8 c-19.1-2.9-38-2.9-56.7 0 c-1.8-4.3-4.5-9.7-6.8-13.8 c-18 .4-35.6 7.5-51.9 15 C12.4 92.7 6.2 130.6 9.2 168 c19.6 14.4 38.6 23.2 57.2 28.9 c4.6-6.2 8.7-12.8 12.2-19.8 c-6.7-2.5-13.1-5.6-19.2-9.3 c1.6-1.2 3.2-2.5 4.7-3.8 c37 17.3 77.2 17.3 113.8 0 c1.6 1.3 3.2 2.6 4.7 3.8 c-6.1 3.7-12.5 6.8-19.2 9.3 c3.5 7 7.6 13.6 12.2 19.8 c18.7-5.7 37.7-14.5 57.3-28.9 c3.5-43-5.8-80.5-29.2-113.9Z"/>
         </svg>
       </div>
+      
       <div class="fsvg" id="gl">
         <svg viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg">
           <path d="M12 .5C5.73.5.5 5.73.5 12c0 5.09 3.29 9.41 7.86 10.94.57.1.78-.25.78-.55v-2.1c-3.2.7-3.87-1.54-3.87-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.33.95.1-.74.4-1.25.73-1.54-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.06 11.06 0 0 1 5.8 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.57.23 2.73.11 3.02.73.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.39-5.25 5.67.41.35.78 1.04.78 2.1v3.12c0 .3.21.66.79.55C20.71 21.41 24 17.09 24 12 24 5.73 18.77.5 12 .5z"/>
         </svg>
       </div>
+      
       <div class="fsvg" id="rl">
         <svg viewBox="0 0 25 28" xmlns="http://www.w3.org/2000/svg">
           <path d="M4.913 0 0 19.088 19.088 24 24 4.912 4.913 0Zm8.47 14.341-3.726-.958.959-3.726 3.726.959-.96 3.726Z"/>
@@ -256,10 +300,10 @@
   <script>
     const cv = document.getElementById("c");
     const ctx = cv.getContext("2d");
-    let n = [];
-    let cnt, dst;
+    let nodes = [];
+    let nodeCount, connectionDistance;
 
-    const rs = () => {
+    const resizeCanvas = () => {
       const dpr = window.devicePixelRatio || 1;
       cv.width = window.innerWidth * dpr;
       cv.height = window.innerHeight * dpr;
@@ -268,14 +312,14 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
       if (window.innerWidth > 768) {
-        cnt = 300;
-        dst = 200;
+        nodeCount = 400;
+        connectionDistance = 200;
       } else {
-        cnt = 150;
-        dst = 100;
+        nodeCount = 200;
+        connectionDistance = 100;
       }
 
-      n = Array.from({length: cnt}, () => ({
+      nodes = Array.from({length: nodeCount}, () => ({
         x: Math.random() * window.innerWidth,
         y: Math.random() * window.innerHeight,
         vx: (Math.random() - 0.5) * 0.7,
@@ -284,43 +328,44 @@
       }));
     };
 
-    window.addEventListener("resize", rs);
-    rs();
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
 
-    const anim = () => {
+    const animate = () => {
       ctx.clearRect(0, 0, cv.width, cv.height);
 
-      n.forEach((a, i) => {
-        a.x += a.vx;
-        a.y += a.vy;
+      nodes.forEach((nodeA, i) => {
+        nodeA.x += nodeA.vx;
+        nodeA.y += nodeA.vy;
 
-        if (a.x < 0 || a.x > window.innerWidth) a.vx *= -1;
-        if (a.y < 0 || a.y > window.innerHeight) a.vy *= -1;
+        if (nodeA.x < 0 || nodeA.x > window.innerWidth) nodeA.vx *= -1;
+        if (nodeA.y < 0 || nodeA.y > window.innerHeight) nodeA.vy *= -1;
 
         ctx.beginPath();
-        ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+        ctx.arc(nodeA.x, nodeA.y, nodeA.r, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(255,255,255,0.3)";
         ctx.fill();
 
-        for (let j = i + 1; j < n.length; j++) {
-          const b = n[j];
-          const d = Math.hypot(a.x - b.x, a.y - b.y);
-          if (d < dst) {
-            ctx.strokeStyle = `rgba(255,255,255,${(1 - d / dst) * 0.2})`;
+        for (let j = i + 1; j < nodes.length; j++) {
+          const nodeB = nodes[j];
+          const distance = Math.hypot(nodeA.x - nodeB.x, nodeA.y - nodeB.y);
+          
+          if (distance < connectionDistance) {
+            ctx.strokeStyle = `rgba(255,255,255,${(1 - distance / connectionDistance) * 0.2})`;
             ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
+            ctx.moveTo(nodeA.x, nodeA.y);
+            ctx.lineTo(nodeB.x, nodeB.y);
             ctx.stroke();
           }
         }
       });
 
-      requestAnimationFrame(anim);
+      requestAnimationFrame(animate);
     };
 
-    anim();
-
-    const ph = [
+    animate();
+    
+    const phrases = [
       'Filipino Developer 🇵🇭',
       'Professional Luau Developer',
       'Html Developer',
@@ -331,56 +376,62 @@
       "To God Be The Glory"
     ];
 
-    let idx = 0, chr = 0, del = false;
-    const txt = document.querySelector('.anim');
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const textElement = document.querySelector('.anim');
 
-    const type = () => {
-      const cur = ph[idx];
-      if (!del) {
-        txt.textContent = cur.slice(0, chr + 1);
-        chr++;
-        if (chr === cur.length) {
-          setTimeout(() => del = true, 500);
+    const typeText = () => {
+      const currentPhrase = phrases[phraseIndex];
+      
+      if (!isDeleting) {
+        textElement.textContent = currentPhrase.slice(0, charIndex + 1);
+        charIndex++;
+        
+        if (charIndex === currentPhrase.length) {
+          setTimeout(() => isDeleting = true, 500);
         }
       } else {
-        txt.textContent = cur.slice(0, chr - 1);
-        chr--;
-        if (chr === 0) {
-          del = false;
-          idx = (idx + 1) % ph.length;
+        textElement.textContent = currentPhrase.slice(0, charIndex - 1);
+        charIndex--;
+        
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
         }
       }
-      setTimeout(type, del ? 40 : 50);
+      
+      setTimeout(typeText, isDeleting ? 40 : 50);
     };
 
-    type();
+    typeText();
 
-    const mb = document.getElementById("musicBtn");
-    const von = document.getElementById("volOn");
-    const voff = document.getElementById("volOff");
+    const musicBtn = document.getElementById("musicBtn");
+    const volumeOn = document.getElementById("volOn");
+    const volumeOff = document.getElementById("volOff");
 
-    const aud = new Audio("https://raw.githubusercontent.com/zer0NA1/zer0/main/screen-20260114-084919.mp3");
-    aud.loop = true;
-    aud.volume = 0.9;
+    const audio = new Audio("https://raw.githubusercontent.com/zer0NA1/zer0/main/screen-20260114-084919.mp3");
+    audio.loop = true;
+    audio.volume = 0.9;
 
-    let play = false;
-    let fp = true;
+    let isPlaying = false;
+    let firstPlay = true;
 
-    mb.onclick = () => {
-      play = !play;
+    musicBtn.onclick = () => {
+      isPlaying = !isPlaying;
 
-      if (play) {
-        if (fp) {
-          aud.currentTime = 5;
-          fp = false;
+      if (isPlaying) {
+        if (firstPlay) {
+          audio.currentTime = 5;
+          firstPlay = false;
         }
-        aud.play();
-        von.style.display = "block";
-        voff.style.display = "none";
+        audio.play();
+        volumeOn.style.display = "block";
+        volumeOff.style.display = "none";
       } else {
-        aud.pause();
-        von.style.display = "none";
-        voff.style.display = "block";
+        audio.pause();
+        volumeOn.style.display = "none";
+        volumeOff.style.display = "block";
       }
     };
 

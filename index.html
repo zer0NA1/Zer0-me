@@ -303,7 +303,7 @@
     let nodes = [];
     let nodeCount, connectionDistance;
 
-    const resizeCanvas = () => {
+    const rs = () => {
       const dpr = window.devicePixelRatio || 1;
       cv.width = window.innerWidth * dpr;
       cv.height = window.innerHeight * dpr;
@@ -328,8 +328,8 @@
       }));
     };
 
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
+    window.addEventListener("resize", rs);
+    rs();
 
     const animate = () => {
       ctx.clearRect(0, 0, cv.width, cv.height);
@@ -367,11 +367,10 @@
     
     const phrases = [
       'Filipino Developer 🇵🇭',
-      'Professional Luau Developer',
+      '16 year old Coder </>',
+      'Professional LUA Developer',
       'Html Developer',
-      'Coding is my Hobby',
       'Learning JavaScript',
-      '16 year old Coder',
       "Professional Rizzler",
       "To God Be The Glory"
     ];
